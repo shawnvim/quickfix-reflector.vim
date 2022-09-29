@@ -19,12 +19,7 @@ if v:version < 704
 	let s:regexpEngine = ''
 endif
 
-augroup quickfix_reflector
-	autocmd!
-	autocmd BufReadPost quickfix nested :call <SID>OnQuickfixInit()
-augroup END
-
-function! s:OnQuickfixInit() abort
+function! g:OnQuickfixInit() abort
 	if &filetype !=# 'qf' || !&write
 		return
 	endif
